@@ -45,11 +45,11 @@ public class Empleado extends Persona {
         this.sueldoBase = sueldoBase;
     }
 	
-	public static double getPagoExtras() {
+	public double getPagoExtras() {
         return pagoExtras;
     }
 
-    public static void setPagoExtras(double pagoExtras) {
+    public void setPagoExtras(double pagoExtras) {
         this.pagoExtras = pagoExtras;
     }
 

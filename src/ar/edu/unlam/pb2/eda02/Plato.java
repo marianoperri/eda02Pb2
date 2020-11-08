@@ -1,11 +1,14 @@
 package ar.edu.unlam.pb2.eda02;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Plato extends Menu {
 	
 	private String nombre;
 	private String descripcion;
 	private double importe;
-	private Set<String> ingredientes = new Hashset<>();
+	private Set<String> ingredientes = new HashSet<>();
 
 	public Plato(String nombre, String descripcion, double importe) {
 
