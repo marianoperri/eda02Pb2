@@ -7,6 +7,7 @@ public class Bar {
 	private HashSet<Persona> personas;
 	private HashSet<Menu> carta;
 	private HashSet<Mesa> mesas;
+	private HashSet<AsignacionDeCliente> asignacion;
 	
 	
 	public Bar(String nombre) {
@@ -15,6 +16,7 @@ public class Bar {
 		this.personas =new HashSet<Persona>();
 		this.carta = new HashSet<Menu>();
 		this.mesas = new HashSet<Mesa>();
+		this.asignacion = new HashSet<AsignacionDeCliente>();
 	}
 	public void iniciarActividadBar() {
 				
@@ -33,6 +35,22 @@ public class Bar {
 			this.mesas.add(mesaDeDiez);
 			
 		}
+		
+	}
+	public boolean sentarCliente(Cliente nuevoCliente) {
+		
+		
+		for (Mesa mesa : mesas) {
+			Integer clientesASentar=nuevoCliente.getAcompañantes()+1;
+			if(mesa.getCapacidad()>=clientesASentar && mesa.getEstado()==true) {
+				AsignacionDeCliente clienteAsignado=new AsignacionDeCliente(nuevoCliente,mesa,mesa.getId());
+				mesa.ocuparMesa();
+				return asignacion.add(clienteAsignado);
+				
+				
+			}
+			
+		}return false;
 		
 	}
 	
