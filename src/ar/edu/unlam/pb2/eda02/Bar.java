@@ -16,7 +16,25 @@ public class Bar {
 		this.carta = new HashSet<Menu>();
 		this.mesas = new HashSet<Mesa>();
 	}
-	
+	public void iniciarActividadBar() {
+				
+		for(int i=0; i<=6;i++) {
+			Mesa mesaCuadruples = new Mesa(4, i);
+			this.mesas.add(mesaCuadruples);
+			
+		}
+		for(int i=7; i<=11;i++) {
+			Mesa mesaDobles = new Mesa(2, i);
+			this.mesas.add(mesaDobles);
+			
+		}
+		for(int i=12; i<=15;i++) {
+			Mesa mesaDeDiez = new Mesa(10, i);
+			this.mesas.add(mesaDeDiez);
+			
+		}
+		
+	}
 	
 	
 	
