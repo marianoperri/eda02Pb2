@@ -116,6 +116,7 @@ public class Bar {
 	}
 	
 	public Double cerrarCuenta(Integer idCliente) {
+<<<<<<< HEAD
         Cliente cuentaCliente=buscarCliente(idCliente);
         Double totalPedidos=0.0;
         for (Menu pedidos : cuentaCliente.getPedido()) {
@@ -124,6 +125,17 @@ public class Bar {
         }
         return totalPedidos;
     }
+=======
+		Cliente cuentaCliente=buscarCliente(idCliente);
+		Double totalPedidos=0.0;
+		for (Menu pedidos : cuentaCliente.getPedido()) {
+			totalPedidos+=pedidos.getImporte();
+			
+		}
+		return totalPedidos;
+	}
+	
+>>>>>>> c2fea71629bd8b1712e6996b7c1f42f29f923497
 	
 	
 	

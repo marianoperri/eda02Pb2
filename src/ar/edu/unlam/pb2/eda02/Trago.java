@@ -6,6 +6,10 @@ public class Trago extends Menu {
 	
 	private String nombre;
 	private String descripcion;
+<<<<<<< HEAD
+=======
+	
+>>>>>>> c2fea71629bd8b1712e6996b7c1f42f29f923497
 	private Set<String> ingredientes = new HashSet<>();
 
 	public Trago(String nombre, String descripcion, double importe) {
@@ -33,6 +37,10 @@ public class Trago extends Menu {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> c2fea71629bd8b1712e6996b7c1f42f29f923497
 	public Set<String> getIngredientes() {
 		return ingredientes;
 	}
