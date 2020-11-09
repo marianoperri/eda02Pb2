@@ -54,7 +54,31 @@ public class Bar {
 		
 	}
 	
+	public void hacerUnClienteVip(Integer idCliente) {
+		for (Persona clienteAbuscar : personas) {
+			if(clienteAbuscar.getId().equals(idCliente)) {
+			Cliente cliente = (Cliente) clienteAbuscar;
+			cliente.clienteVip();
+			}
+		}
+	}
 	
+	public Boolean agregarUnEmpleado(Empleado empleado) {
+		if(empleado !=null)
+			return personas.add(empleado);
+		
+		return false;
+		
+	}
+	public Empleado buscarEmpleado(Integer legajo) {
+		for (Persona empleadoAbuscar : personas) {
+			if(empleadoAbuscar.getId() == legajo) {
+				return (Empleado) empleadoAbuscar;
+			}
+			
+		}
+		return null;
+	}
 	
 
 }

@@ -2,14 +2,14 @@ package ar.edu.unlam.pb2.eda02;
 
 public class Empleado extends Persona {
 	
-	private Integer legajo;
+	
 	private Double sueldoBase;
 	private Integer horasTrabajadas;
 	private Integer horasExtras;
 	private Double pagoExtras;
 	
 	public Empleado(Integer legajo,String nombre, String apellido, Integer edad) {
-		this.legajo=legajo;
+		setId(legajo);
 		setNombre(nombre);
 		setApellido(apellido);
 		setEdad(edad);
@@ -22,11 +22,11 @@ public class Empleado extends Persona {
 		return horasExtras * pagoExtras;
 	}
 	public Integer getLegajo() {
-		return legajo;
+		return getId();
 	}
 
 	public void setLegajo(Integer legajo) {
-		this.legajo = legajo;
+		setId(legajo);
 	}
 
 	public Integer getHorasTrabajadas() {

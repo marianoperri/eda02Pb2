@@ -4,10 +4,17 @@ public abstract class Persona {
 	private String nombre;
 	private String apellido;
 	private Integer edad;
+	private Integer id;
 	
 	
 	
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getNombre() {
 		return nombre;
 	}
