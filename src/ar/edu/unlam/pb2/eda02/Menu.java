@@ -7,6 +7,7 @@ public  class Menu {
 	private String nombre;
 	private Set<String> ingredientes = new HashSet<>();
 	private Integer id;
+	private Double importe;
 	
 	public String getNombre() {
 		return nombre;
@@ -37,6 +38,14 @@ public  class Menu {
 		return ingredientes.add(ingrediente);
 		
 		
+	}
+
+	public double getImporte() {
+		return importe;
+	}
+
+	public void setImporte(double importe) {
+		this.importe = importe;
 	}
 	
 }

@@ -115,6 +115,16 @@ public class Bar {
 		return false;
 	}
 	
+	public Double cerrarCuenta(Integer idCliente) {
+		Cliente cuentaCliente=buscarCliente(idCliente);
+		Double totalPedidos=0.0;
+		for (Menu pedidos : cuentaCliente.getPedido()) {
+			totalPedidos+=pedidos.getImporte();
+			
+		}
+		return totalPedidos;
+	}
+	
 	
 	
 	
