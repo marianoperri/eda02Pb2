@@ -7,7 +7,16 @@ public  class Menu {
 	private String nombre;
 	private Set<String> ingredientes = new HashSet<>();
 	private Integer id;
-	
+	private Double importe;
+
+
+
+	public Double getImporte(){
+		return importe;
+	}
+	public void setImporte(Double importe){
+		this.importe = importe;
+	}
 	public String getNombre() {
 		return nombre;
 	}
