@@ -37,8 +37,10 @@ public class Mesa {
     public Boolean getUbicacion() {
     	return ubicacion;
     }
-	public void setEstado(Boolean estado) {
-		this.ubicacion = estado;
+	
+	public void sacarMesa() {
+		this.ubicacion = true;
+		
 	}
 	
 
