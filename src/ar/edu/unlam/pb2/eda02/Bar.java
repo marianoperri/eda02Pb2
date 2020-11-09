@@ -53,6 +53,14 @@ public class Bar {
 		}return false;
 		
 	}
+	public Cliente buscarCliente(Integer idCliente) {
+		for (Persona clienteAbuscar : personas) {
+			if(clienteAbuscar.getId().equals(idCliente)) {
+			Cliente cliente = (Cliente) clienteAbuscar;
+			return cliente;
+			}
+		}return null;
+	}
 	
 	public void hacerUnClienteVip(Integer idCliente) {
 		for (Persona clienteAbuscar : personas) {
@@ -79,6 +87,36 @@ public class Bar {
 		}
 		return null;
 	}
+	public Boolean agregarPlatos(Plato platoAlMenu, Integer id) {
+		if(platoAlMenu!= null) {
+			platoAlMenu.setId(id);
+			return carta.add(platoAlMenu);
+		}
+		return false;
+	}
+	public Boolean agregarTrago(Trago tragoAlMenu, Integer id) {
+		if(tragoAlMenu != null) {
+			tragoAlMenu.setId(id);
+			return carta.add(tragoAlMenu);
+		}
+		return false;
+	}
+	public Boolean cargarAPedido(Integer idCarta,Integer idCliente) {
+		Cliente clienteDeLaMesa=buscarCliente(idCliente);
+		for (Menu pedidoDelCliente : carta) {
+			if(pedidoDelCliente.getId()== idCarta) {
+				
+				return clienteDeLaMesa.getPedido().add(pedidoDelCliente);
+			}
+			
+			
+			
+		}
+		return false;
+	}
+	
+	
+	
 	
 
 }
