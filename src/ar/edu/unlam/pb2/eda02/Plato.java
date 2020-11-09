@@ -7,29 +7,18 @@ public class Plato extends Menu {
 	
 	private String nombre;
 	private String descripcion;
-<<<<<<< HEAD
-=======
-	
->>>>>>> c2fea71629bd8b1712e6996b7c1f42f29f923497
 	private Set<String> ingredientes = new HashSet<>();
 
 	public Plato(String nombre, String descripcion, double importe) {
 
 		this.nombre = nombre;
 		this.descripcion = descripcion;
-<<<<<<< HEAD
-=======
-		
->>>>>>> c2fea71629bd8b1712e6996b7c1f42f29f923497
 		setImporte(importe);
 	}
 
-	public Boolean agregarIngrediente(String ingrediente) {
-		
+	public Boolean agregarIngrediente(String ingrediente) {		
 		return ingredientes.add(ingrediente);
-	
 	}
-
 
 	public String getNombre() {
 		return nombre;
@@ -43,10 +32,7 @@ public class Plato extends Menu {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-<<<<<<< HEAD
-=======
-	
->>>>>>> c2fea71629bd8b1712e6996b7c1f42f29f923497
+
 	public Set<String> getIngredientes() {
 		return ingredientes;
 	}

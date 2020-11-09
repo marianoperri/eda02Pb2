@@ -8,19 +8,8 @@ public  class Menu {
 	private Set<String> ingredientes = new HashSet<>();
 	private Integer id;
 	private Double importe;
-<<<<<<< HEAD
 
-
-
-	public Double getImporte(){
-		return importe;
-	}
-	public void setImporte(Double importe){
-		this.importe = importe;
-	}
-=======
 	
->>>>>>> c2fea71629bd8b1712e6996b7c1f42f29f923497
 	public String getNombre() {
 		return nombre;
 	}
