@@ -203,6 +203,7 @@ public class TestBarEda02 {
 
 	}
 	
+	@Test
 	public void queNoPuedaIngresarClienteSinIniciarLaActividad(){
         Bar miBar = new Bar("El bar de Andy");
         Cliente juan = new Cliente(21, 9, 23, "Gonzalez");
