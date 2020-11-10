@@ -151,5 +151,6 @@ public class TestBarEda02 {
 
 	//que no acepte clientes con mismo ID, ni clientes y empleados con mis ID
 	//plato y trago con mismo ID
+	//que no deje ingresar cliente sin iniciar actividad
 
 }
