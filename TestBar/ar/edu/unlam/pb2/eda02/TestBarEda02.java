@@ -200,12 +200,35 @@ public class TestBarEda02 {
 		miBar.cargarAPedido(004, 13);
 		miBar.cargarAPedido(004, 13);
 		assertEquals(miBar.consumosDelDia(),2900.0,0.0);
+
 	}
 	
+	public void queNoPuedaIngresarClienteSinIniciarLaActividad(){
+        Bar miBar = new Bar("El bar de Andy");
+        Cliente juan = new Cliente(21, 9, 23, "Gonzalez");
+        assertFalse(miBar.sentarCliente(juan));
+    }
+
+    @Test
+    public void queNoAcepteClientesConElMismoId(){
+        Bar miBar = new Bar("El bar de Andy");
+        Cliente juan = new Cliente(21, 9, 23, "Gonzalez");
+        Cliente carlos = new Cliente(21, 2, 43, "Acuña");
+        miBar.iniciarActividadBar();
+        miBar.sentarCliente(juan);
+        assertFalse(miBar.sentarCliente(carlos));
+    }
+
+    @Test
+    public void queNoAcepteEmpleadoConElMismoId(){
+        Bar miBar = new Bar("El bar de Andy");
+        Empleado andres = new Empleado(101, "Andres", "Borgiat", 40);
+        Empleado ruben = new Empleado(101, "ruben", "perez", 30);
+        miBar.agregarUnEmpleado(andres);
+        assertFalse(miBar.agregarUnEmpleado(ruben));
+    }
 
 	//que no acepte clientes con mismo ID, ni clientes y empleados con mis ID
 	//plato y trago con mismo ID
-	//que no deje ingresar cliente sin iniciar actividad
-	
 
 }

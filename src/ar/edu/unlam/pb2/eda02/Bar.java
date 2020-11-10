@@ -45,8 +45,12 @@ public class Bar {
 		for (Mesa mesa : mesas) {
 			Integer clientesASentar = nuevoCliente.getAcompañantes() + 1;
 			if (mesa.getCapacidad() >= clientesASentar && mesa.getEstado() == true) {
+		
+				for (AsignacionDeCliente asignacionDeCliente : asignacion) {
 				AsignacionDeCliente clienteAsignado = new AsignacionDeCliente(nuevoCliente, mesa, mesa.getId());
-
+                    if(asignacionDeCliente.getCliente().getId().equals(nuevoCliente.getId()))
+                        return false;
+                }
 				mesa.ocuparMesa();
 				personas.add(nuevoCliente);
 				return asignacion.add(clienteAsignado);
