@@ -98,11 +98,23 @@ public class Bar {
 		}
 		return null;
 	}
+	
+	public Boolean queNoSeRepitanIDMenu(Menu platoOTrago, Integer id) {
+		for (Menu cartas : carta) {
+			if(cartas.getId().equals(id)) {
+				return false;
+			}
+			
+		}
+		return true;
+	}
 
 	public Boolean agregarAlaCarta(Menu platoOTrago, Integer id) {
-		if (platoOTrago != null) {
+		if(queNoSeRepitanIDMenu(platoOTrago, id )) {
+			if (platoOTrago != null) {
 			platoOTrago.setId(id);
 			return carta.add(platoOTrago);
+			}
 		}
 		return false;
 	}

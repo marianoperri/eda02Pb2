@@ -227,10 +227,22 @@ public class TestBarEda02 {
         miBar.agregarUnEmpleado(andres);
         assertFalse(miBar.agregarUnEmpleado(ruben));
     }
+    
+    @Test
+    public void queNoSeAceptenPlatoYTragoConMismoID() {
+    	Bar miBar = new Bar("El bar de Andy");
+    	Plato nuevoPlato = new Plato("Fideos ", "Fideos con salsa", 500.0);
+		Trago nuevoTrago = new Trago("Fernet con coca", "Fernet con coca y hielo justo", 800.0);
+		miBar.iniciarActividadBar();
+		miBar.agregarAlaCarta(nuevoPlato, 004);
+		assertFalse(miBar.agregarAlaCarta(nuevoTrago, 004));
+    }
+    
+    
 
 
 
-	//que no acepte clientes con mismo ID, ni clientes y empleados con mis ID
-	//plato y trago con mismo ID
+	
+
 
 }
