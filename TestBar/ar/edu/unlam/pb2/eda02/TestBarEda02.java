@@ -202,7 +202,7 @@ public class TestBarEda02 {
 		assertEquals(miBar.consumosDelDia(),2900.0,0.0);
 
 	}
-	
+	@Test
 	public void queNoPuedaIngresarClienteSinIniciarLaActividad(){
         Bar miBar = new Bar("El bar de Andy");
         Cliente juan = new Cliente(21, 9, 23, "Gonzalez");
