@@ -8,7 +8,7 @@ public class AsignacionDeCliente {
 	
 	public AsignacionDeCliente(Cliente cliente, Mesa mesa, Integer id) {
 		
-		this.cliente = cliente;
+		this.setCliente(cliente);
 		this.mesa = mesa;
 		this.id = id;
 	}
@@ -38,6 +38,16 @@ public class AsignacionDeCliente {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 	
 	
