@@ -3,8 +3,7 @@ package ar.edu.unlam.pb2.eda02;
 import java.util.HashSet;
 
 public class Cliente extends Persona {
-	private boolean membresia;
-	private Integer codigoCliente;
+	private boolean membresia = false;
 	private Integer acompañantes;
 	private HashSet<Menu> pedido;
 	
@@ -12,12 +11,15 @@ public class Cliente extends Persona {
 	public Cliente( Integer codigoCliente, Integer acompañantes, Integer edad, String apellido) {
 		super();
 		
-		this.codigoCliente = codigoCliente;
-		this.acompañantes= acompañantes;
 		
+		this.acompañantes= acompañantes;
+		setId(codigoCliente);
 		setEdad(edad);
 		setApellido(apellido);
+		pedido=new HashSet <>();
 	}
+	
+	
 	
 	public void clienteVip() {
 		this.membresia=true;

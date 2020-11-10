@@ -44,7 +44,9 @@ public class Bar {
 			Integer clientesASentar = nuevoCliente.getAcompañantes() + 1;
 			if (mesa.getCapacidad() >= clientesASentar && mesa.getEstado() == true) {
 				AsignacionDeCliente clienteAsignado = new AsignacionDeCliente(nuevoCliente, mesa, mesa.getId());
+				
 				mesa.ocuparMesa();
+				personas.add(nuevoCliente);
 				return asignacion.add(clienteAsignado);
 
 			}
@@ -56,21 +58,20 @@ public class Bar {
 
 	public Cliente buscarCliente(Integer idCliente) {
 		for (Persona clienteAbuscar : personas) {
-			if (clienteAbuscar.getId().equals(idCliente)) {
-				Cliente cliente = (Cliente) clienteAbuscar;
-				return cliente;
+			if (clienteAbuscar.getId()==idCliente) {
+				return (Cliente) clienteAbuscar;
+				
 			}
 		}
 		return null;
 	}
 
 	public void hacerUnClienteVip(Integer idCliente) {
-		for (Persona clienteAbuscar : personas) {
-			if (clienteAbuscar.getId().equals(idCliente)) {
-				Cliente cliente = (Cliente) clienteAbuscar;
-				cliente.clienteVip();
-			}
-		}
+		Cliente cliente = buscarCliente(idCliente);
+		cliente.clienteVip();
+		
+			
+		
 	}
 
 	public Boolean agregarUnEmpleado(Empleado empleado) {
@@ -113,6 +114,8 @@ public class Bar {
 			if (pedidoDelCliente.getId() == idCarta) {
 
 				return clienteDeLaMesa.getPedido().add(pedidoDelCliente);
+		
+			
 			}
 
 		}
@@ -128,7 +131,7 @@ public class Bar {
 
 		}
 		if (cuentaCliente.getMembresia()) {
-			totalPedidos = (totalPedidos * 0.25);
+			totalPedidos = (totalPedidos * 0.75);
 		}
 
 		return totalPedidos;
