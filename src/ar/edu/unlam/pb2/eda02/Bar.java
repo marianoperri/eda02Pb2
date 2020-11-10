@@ -130,17 +130,19 @@ public class Bar {
 		return totalPedidos;
 	}
 
-	public void pagarSueldos(Integer legajo) {
+	public Boolean pagarSueldos(Integer legajo) {
+		Boolean sePago = false;
 		Empleado empleadoApagar = buscarEmpleado(legajo);
 			if (empleadoApagar!= null) {
 				if(empleadoApagar.getHorasTrabajadas()>0)
 				empleadoApagar.setSueldo((PAGO_POR_HORA*empleadoApagar.getHorasTrabajadas()));
+				sePago= true;
 			}
 			 if (empleadoApagar.getHorasExtras()>0) {
 				empleadoApagar.setPagoExtras((PAGO_POR_HORA*empleadoApagar.getHorasExtras()*PAGO_POR_HORA_EXTRA));
 				
 			}
-		
+		return sePago;
 	}
 
 }
