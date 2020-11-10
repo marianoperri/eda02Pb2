@@ -144,5 +144,13 @@ public class Bar {
 			}
 		return sePago;
 	}
+	
+	public Double consumosDelDia() {
+		Double totalConsumo = 0.0;
+		for (AsignacionDeCliente cliente : asignacion) {
+			totalConsumo+= cerrarCuenta(cliente.getCliente().getId());
+		}
+		return totalConsumo;
+	}
 
 }

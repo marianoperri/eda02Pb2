@@ -148,6 +148,62 @@ public class TestBarEda02 {
 		assertEquals(miBar.cerrarCuenta(21),975.0,0.0);
 		
 	}
+	@Test
+	public void queSePuedaPagarElSueldoAUnEmpleado() {
+		Bar miBar = new Bar("El bar de Andy");
+		Empleado andres = new Empleado(101, "Andres", "Borgiat", 40);
+		Cliente juan = new Cliente(21, 9, 23, "Gonzalez");
+		
+		miBar.agregarUnEmpleado(andres);
+		miBar.iniciarActividadBar();
+		miBar.sentarCliente(juan);
+		andres.setHorasTrabajadas(8.3);
+		andres.setHorasExtras(4.3);
+		assertTrue(miBar.pagarSueldos(101));
+		
+		
+		
+	}
+	@Test
+	public void queElSueldoAUnEmpleadoSeaElEsperado() {
+		Bar miBar = new Bar("El bar de Andy");
+		Empleado andres = new Empleado(101, "Andres", "Borgiat", 40);
+		Cliente juan = new Cliente(21, 9, 23, "Gonzalez");
+		Double sueldoEsperado = 1660.0;
+		Double extrasEsperadas = 1290.0;
+		miBar.agregarUnEmpleado(andres);
+		miBar.iniciarActividadBar();
+		miBar.sentarCliente(juan);
+		andres.setHorasTrabajadas(8.3);
+		andres.setHorasExtras(4.3);
+		miBar.pagarSueldos(101);
+		
+		assertEquals(sueldoEsperado, andres.getSueldoBase(), 0.1);
+		
+		assertEquals(extrasEsperadas, andres.getPagoExtras(), 0.1);
+	}
+	
+	@Test
+	public void queSePuedaCerrarElDia() {
+		Bar miBar = new Bar("El bar de Andy");
+		Plato nuevoPlato = new Plato("Fideos ", "Fideos con salsa", 500.0);
+		Trago nuevoTrago = new Trago("Fernet con coca", "Fernet con coca y hielo justo", 800.0);
+		Cliente juan = new Cliente(21, 9, 23, "Gonzalez");
+		Cliente carlos = new Cliente(13, 2, 43, "Acuña");
+		miBar.iniciarActividadBar();
+		miBar.sentarCliente(juan);
+		miBar.sentarCliente(carlos);
+		miBar.agregarAlaCarta(nuevoPlato, 001);
+		miBar.agregarAlaCarta(nuevoTrago, 004);
+		miBar.cargarAPedido(001, 21);
+		miBar.cargarAPedido(004, 21);
+		miBar.cargarAPedido(004, 13);
+		miBar.cargarAPedido(004, 13);
+		assertEquals(miBar.consumosDelDia(),2900.0,0.0);
+
+	}
+	
+	
 
 	//que no acepte clientes con mismo ID, ni clientes y empleados con mis ID
 	//plato y trago con mismo ID

@@ -1,11 +1,12 @@
 package ar.edu.unlam.pb2.eda02;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+
 
 public class Cliente extends Persona {
 	private boolean membresia = false;
 	private Integer acompañantes;
-	private HashSet<Menu> pedido;
+	private ArrayList<Menu> pedido;
 	
 	
 	public Cliente( Integer codigoCliente, Integer acompañantes, Integer edad, String apellido) {
@@ -16,7 +17,7 @@ public class Cliente extends Persona {
 		setId(codigoCliente);
 		setEdad(edad);
 		setApellido(apellido);
-		pedido=new HashSet <>();
+		pedido=new ArrayList <>();
 	}
 	
 	
@@ -33,11 +34,11 @@ public class Cliente extends Persona {
 		return acompañantes;
 	}
 
-	public HashSet<Menu> getPedido() {
+	public ArrayList<Menu> getPedido() {
 		return pedido;
 	}
 
-	public void setPedido(HashSet<Menu> pedido) {
+	public void setPedido(ArrayList<Menu> pedido) {
 		this.pedido = pedido;
 	}
 	
