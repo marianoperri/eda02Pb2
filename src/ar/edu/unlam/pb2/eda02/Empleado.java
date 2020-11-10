@@ -3,9 +3,9 @@ package ar.edu.unlam.pb2.eda02;
 public class Empleado extends Persona {
 	
 	
-	private Double sueldoBase;
-	private Integer horasTrabajadas;
-	private Integer horasExtras;
+	private Double sueldo;
+	private Double horasTrabajadas;
+	private Double horasExtras;
 	private Double pagoExtras;
 	
 	public Empleado(Integer legajo,String nombre, String apellido, Integer edad) {
@@ -16,7 +16,7 @@ public class Empleado extends Persona {
 	}
 
 	public Double calcularImporteSueldo(){
-		return sueldoBase + calcularImporteHorasExtras();
+		return sueldo + calcularImporteHorasExtras();
 	}
 	public Double calcularImporteHorasExtras(){
 		return horasExtras * pagoExtras;
@@ -29,28 +29,37 @@ public class Empleado extends Persona {
 		setId(legajo);
 	}
 
-	public Integer getHorasTrabajadas() {
+	public Double getHorasTrabajadas() {
 		return horasTrabajadas;
 	}
 
-	public void setHorasTrabajadas(Integer horasTrabajadas) {
+	public void setHorasTrabajadas(Double horasTrabajadas) {
 		this.horasTrabajadas = horasTrabajadas;
 	}
 
 	public double getSueldoBase() {
-        return sueldoBase;
+        return sueldo;
     }
 
-    public void setSueldoBase(double sueldoBase) {
-        this.sueldoBase = sueldoBase;
+    public void setSueldo(Double sueldo) {
+        this.sueldo = sueldo;
     }
 	
 	public double getPagoExtras() {
         return pagoExtras;
     }
 
-    public void setPagoExtras(double pagoExtras) {
+    public void setPagoExtras(Double pagoExtras) {
         this.pagoExtras = pagoExtras;
     }
+
+	public Double getHorasExtras() {
+		return horasExtras;
+	}
+
+	public void setHorasExtras(Double horasExtras) {
+		this.horasExtras = horasExtras;
+	}
+    
 
 }

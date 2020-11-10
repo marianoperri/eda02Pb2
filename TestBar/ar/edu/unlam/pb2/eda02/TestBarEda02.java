@@ -92,7 +92,7 @@ public class TestBarEda02 {
 	public void queSePuedaAgregarPlato() {
 		Bar miBar = new Bar("El bar de Andy");
 		Plato nuevoPlato = new Plato("Fideos ", "Fideos con salsa", 500.0);
-		assertTrue(miBar.agregarPlatos(nuevoPlato, 001));
+		assertTrue(miBar.agregarAlaCarta(nuevoPlato, 001));
 		
 	}
 	
@@ -101,7 +101,7 @@ public class TestBarEda02 {
 		Bar miBar = new Bar("El bar de Andy");
 		Trago nuevoTrago = new Trago("Fernet con coca", "Fernet con coca y hielo justo", 800.0);
 		
-		assertTrue(miBar.agregarTrago(nuevoTrago, 004));
+		assertTrue(miBar.agregarAlaCarta(nuevoTrago, 004));
 		
 	}
 	
@@ -112,7 +112,7 @@ public class TestBarEda02 {
 		Cliente juan = new Cliente(21, 9, 23, "Gonzalez");
 		miBar.iniciarActividadBar();
 		miBar.sentarCliente(juan);
-		miBar.agregarPlatos(nuevoPlato, 001);
+		miBar.agregarAlaCarta(nuevoPlato, 001);
 		assertTrue(miBar.cargarAPedido(001, 21));	
 
 	}
@@ -125,8 +125,8 @@ public class TestBarEda02 {
 		Cliente juan = new Cliente(21, 9, 23, "Gonzalez");
 		miBar.iniciarActividadBar();
 		miBar.sentarCliente(juan);
-		miBar.agregarPlatos(nuevoPlato, 001);
-		miBar.agregarTrago(nuevoTrago, 004);
+		miBar.agregarAlaCarta(nuevoPlato, 001);
+		miBar.agregarAlaCarta(nuevoTrago, 004);
 		miBar.cargarAPedido(001, 21);
 		miBar.cargarAPedido(004, 21);
 		assertEquals(miBar.cerrarCuenta(21),1300.0,0.0);
@@ -140,8 +140,8 @@ public class TestBarEda02 {
 		Cliente juan = new Cliente(21, 9, 23, "Gonzalez");
 		miBar.iniciarActividadBar();
 		miBar.sentarCliente(juan);
-		miBar.agregarPlatos(nuevoPlato, 001);
-		miBar.agregarTrago(nuevoTrago, 004);
+		miBar.agregarAlaCarta(nuevoPlato, 001);
+		miBar.agregarAlaCarta(nuevoTrago, 004);
 		miBar.cargarAPedido(001, 21);
 		miBar.cargarAPedido(004, 21);
 		miBar.hacerUnClienteVip(21);

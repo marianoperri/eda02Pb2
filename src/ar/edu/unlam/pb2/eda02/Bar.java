@@ -8,7 +8,9 @@ public class Bar {
 	private HashSet<Menu> carta;
 	private HashSet<Mesa> mesas;
 	private HashSet<AsignacionDeCliente> asignacion;
-
+	private static Double PAGO_POR_HORA = 200.0;
+	private static Double PAGO_POR_HORA_EXTRA = 1.5;
+	
 	public Bar(String nombre) {
 		super();
 		this.nombre = nombre;
@@ -44,7 +46,7 @@ public class Bar {
 			Integer clientesASentar = nuevoCliente.getAcompañantes() + 1;
 			if (mesa.getCapacidad() >= clientesASentar && mesa.getEstado() == true) {
 				AsignacionDeCliente clienteAsignado = new AsignacionDeCliente(nuevoCliente, mesa, mesa.getId());
-				
+
 				mesa.ocuparMesa();
 				personas.add(nuevoCliente);
 				return asignacion.add(clienteAsignado);
@@ -58,9 +60,10 @@ public class Bar {
 
 	public Cliente buscarCliente(Integer idCliente) {
 		for (Persona clienteAbuscar : personas) {
-			if (clienteAbuscar.getId()==idCliente) {
-				return (Cliente) clienteAbuscar;
-				
+			if (clienteAbuscar instanceof Cliente) {
+				if (clienteAbuscar.getId() == idCliente) {
+					return (Cliente) clienteAbuscar;
+				}
 			}
 		}
 		return null;
@@ -69,9 +72,7 @@ public class Bar {
 	public void hacerUnClienteVip(Integer idCliente) {
 		Cliente cliente = buscarCliente(idCliente);
 		cliente.clienteVip();
-		
-			
-		
+
 	}
 
 	public Boolean agregarUnEmpleado(Empleado empleado) {
@@ -84,26 +85,19 @@ public class Bar {
 
 	public Empleado buscarEmpleado(Integer legajo) {
 		for (Persona empleadoAbuscar : personas) {
-			if (empleadoAbuscar.getId() == legajo) {
-				return (Empleado) empleadoAbuscar;
+			if (empleadoAbuscar instanceof Empleado) {
+				if (empleadoAbuscar.getId() == legajo) {
+					return (Empleado) empleadoAbuscar;
+				}
 			}
-
 		}
 		return null;
 	}
 
-	public Boolean agregarPlatos(Plato platoAlMenu, Integer id) {
-		if (platoAlMenu != null) {
-			platoAlMenu.setId(id);
-			return carta.add(platoAlMenu);
-		}
-		return false;
-	}
-
-	public Boolean agregarTrago(Trago tragoAlMenu, Integer id) {
-		if (tragoAlMenu != null) {
-			tragoAlMenu.setId(id);
-			return carta.add(tragoAlMenu);
+	public Boolean agregarAlaCarta(Menu platoOTrago, Integer id) {
+		if (platoOTrago != null) {
+			platoOTrago.setId(id);
+			return carta.add(platoOTrago);
 		}
 		return false;
 	}
@@ -114,8 +108,7 @@ public class Bar {
 			if (pedidoDelCliente.getId() == idCarta) {
 
 				return clienteDeLaMesa.getPedido().add(pedidoDelCliente);
-		
-			
+
 			}
 
 		}
@@ -135,6 +128,19 @@ public class Bar {
 		}
 
 		return totalPedidos;
+	}
+
+	public void pagarSueldos(Integer legajo) {
+		Empleado empleadoApagar = buscarEmpleado(legajo);
+			if (empleadoApagar!= null) {
+				if(empleadoApagar.getHorasTrabajadas()>0)
+				empleadoApagar.setSueldo((PAGO_POR_HORA*empleadoApagar.getHorasTrabajadas()));
+			}
+			 if (empleadoApagar.getHorasExtras()>0) {
+				empleadoApagar.setPagoExtras((PAGO_POR_HORA*empleadoApagar.getHorasExtras()*PAGO_POR_HORA_EXTRA));
+				
+			}
+		
 	}
 
 }
