@@ -200,13 +200,12 @@ public class TestBarEda02 {
 		miBar.cargarAPedido(004, 13);
 		miBar.cargarAPedido(004, 13);
 		assertEquals(miBar.consumosDelDia(),2900.0,0.0);
-
 	}
-	
 	
 
 	//que no acepte clientes con mismo ID, ni clientes y empleados con mis ID
 	//plato y trago con mismo ID
 	//que no deje ingresar cliente sin iniciar actividad
+	
 
 }
